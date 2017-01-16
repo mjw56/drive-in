@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { h, Component } from 'preact';
 import MovieList from './MovieList';
 import Movie from './Movie';
 import './App.css';
@@ -68,7 +68,7 @@ class App extends Component {
       this.setState({ search: e.target.value });
   }
 
-  render() {
+  render({ }, { text }) {
     const { movies, movieUrl, search } = this.state;
     const appStyle = movieUrl ? { marginTop: 0 } : null;
     const headerStyle = movieUrl ? { display: 'none' } : null;
@@ -79,7 +79,7 @@ class App extends Component {
             <i className="fa fa-film" aria-hidden="true"></i>
             <div className="input-container">
                 <i className="fa fa-search" aria-hidden="true"></i>
-                <input type="text" className="form-control" placeholder="Search" onChange={this.handleSearch} />
+                <input type="text" className="form-control" placeholder="Search" onInput={this.linkState('search')} />
             </div>
         </div>
         { movieUrl

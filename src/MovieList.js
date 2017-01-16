@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import './MovieList.css';
 
 const MovieList = ({ handleClick, movies, search }) => {

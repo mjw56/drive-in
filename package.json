@@ -4,25 +4,24 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "devDependencies": {
+    "@just-boris/preact-scripts": "^0.8.5",
     "concat-stream": "^1.6.0",
     "concurrently": "^3.1.0",
-    "react-scripts": "0.8.4",
     "serve": "^2.1.2"
   },
   "dependencies": {
     "express": "^4.14.0",
     "now-logs": "0.0.7",
     "peerflix": "^0.36.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "preact": "^7.1.0"
   },
   "scripts": {
     "now-start": "npm run server",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server.js",
-    "client": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client": "node_modules/@just-boris/preact-scripts/bin/react-scripts.js start",
+    "build": "node_modules/@just-boris/preact-scripts/bin/react-scripts.js build",
+    "test": "node_modules/@just-boris/preact-scripts/bin/react-scripts.js test --env=jsdom",
+    "eject": "node_modules/@just-boris/preact-scripts/bin/react-scripts.js eject"
   }
 }
