@@ -6,8 +6,6 @@ const path = require('path');
 
 const app = express();
 
-require('now-logs')('logs');
-
 // the peerflix engine
 let engine;
 
