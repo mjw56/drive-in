@@ -6,22 +6,33 @@
   "devDependencies": {
     "concat-stream": "^1.6.0",
     "concurrently": "^3.1.0",
-    "react-scripts": "0.8.4",
+    "react-scripts": "^2.1.1",
     "sw-precache": "^4.3.0"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "express": "^4.14.0",
+    "node-fetch": "^2.3.0",
     "peerflix": "^0.36.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^16.7.0-alpha.2",
+    "react-cache": "^2.0.0-alpha.1",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-intersection-observer": "^6.3.1",
+    "the-platform": "^0.9.3"
   },
   "scripts": {
     "now-start": "npm run server",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
+    "server": "node ./server",
     "client": "react-scripts start",
     "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
