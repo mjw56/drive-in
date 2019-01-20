@@ -1,25 +1,34 @@
 import React from "react";
+import { DebounceInput } from "react-debounce-input";
+import MovieDispatch from "../../context/MovieDispatch";
+import * as actions from "../../actions/actions";
+import { navigate } from "@reach/router";
 import "./style.css";
 
-function handleSearch(e) {
-  console.log("handle search", e.target.value);
-}
+const NavBar = () => {
+  const dispatch = React.useContext(MovieDispatch);
+  function handleSearch(e) {
+    dispatch({ type: actions.movie_search_query, query: e.target.value });
+    navigate("/search");
+  }
 
-const NavBar = () => (
-  <div className={`header ${window.location.pathname.replace("/", "")}`}>
-    <span className="logo">At the Drive-In</span>
-    <i className="fa fa-film" aria-hidden="true" />
+  return (
+    <div className={`header ${window.location.pathname.replace("/", "")}`}>
+      <span className="logo">At the Drive-In</span>
+      <i className="fa fa-film" aria-hidden="true" />
 
-    <div className="input-container">
-      <i className="fa fa-search" aria-hidden="true" />
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Search"
-        onChange={handleSearch}
-      />
+      <div className="input-container">
+        <i className="fa fa-search" aria-hidden="true" />
+        <DebounceInput
+          minLength={2}
+          debounceTimeout={300}
+          className="form-control"
+          placeholder="Search"
+          onChange={handleSearch}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default NavBar;

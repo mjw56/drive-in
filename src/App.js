@@ -10,23 +10,23 @@ const AsyncSearch = React.lazy(() => import("./routes/Search"));
 const AsyncMovie = React.lazy(() => import("./routes/Movie/Movie"));
 
 const App = () => {
-  const [{ movie }, dispatch] = React.useReducer(movieReducer, {
+  const [{ movie, searchQuery }, dispatch] = React.useReducer(movieReducer, {
     movie: "",
     movies: []
   });
   return (
     <div className={`App ${window.location.pathname.replace("/", "")}`}>
-      <NavBar />
+      <MovieDispatch.Provider value={dispatch}>
+        <NavBar />
 
-      <React.Suspense fallback="Loading...">
-        <MovieDispatch.Provider value={dispatch}>
+        <React.Suspense fallback="Loading...">
           <Router className="route">
             <AsyncHome path="/" />
-            <AsyncSearch path="/search" />
+            <AsyncSearch path="/search" query={searchQuery} />
             <AsyncMovie path="/movie" movie={movie} />
           </Router>
-        </MovieDispatch.Provider>
-      </React.Suspense>
+        </React.Suspense>
+      </MovieDispatch.Provider>
     </div>
   );
 };

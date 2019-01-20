@@ -11,6 +11,11 @@ const reducer = (state, action) => {
         ...state,
         movies: action.movies
       };
+    case actions.movie_search_query:
+      return {
+        ...state,
+        searchQuery: action.query
+      };
     default:
       return state;
   }
