@@ -6,7 +6,7 @@ function handleSearch(e) {
 }
 
 const NavBar = () => (
-  <div className="header">
+  <div className={`header ${window.location.pathname.replace("/", "")}`}>
     <span className="logo">At the Drive-In</span>
     <i className="fa fa-film" aria-hidden="true" />
 

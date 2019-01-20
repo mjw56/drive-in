@@ -1,0 +1,37 @@
+.Movie {
+  display: flex;
+  height: inherit;
+}
+
+.Movie:hover .back-btn {
+  display: block;
+}
+
+.Movie video {
+  width: 100% !important;
+  height: -webkit-fill-available;
+}
+
+.Movie .back-btn {
+  display: none;
+  background: transparent;
+  border: 0;
+  z-index: 999;
+  position: absolute;
+  color: white;
+  top: 20px;
+  left: 20px;
+  font-size: 25px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.back-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.Movie .fa-arrow-circle-o-left {
+  margin-right: 10px;
+  font-size: 80px;
+}

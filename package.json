@@ -21,7 +21,7 @@
     "the-platform": "^0.9.3"
   },
   "scripts": {
-    "now-start": "npm run server",
+    "now-start": "concurrently \"npm run server\" \"serve ./build\"",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node ./server",
     "client": "react-scripts start",

@@ -7,7 +7,7 @@ const Movie = ({ movie }) => {
 
   useEffect(
     () => {
-      fetch(`/stream?magnet=${movie}`)
+      fetch(`/stream?magnet=${movie.magnet}`)
         .then(res => res.json())
         .then(res => {
           setStreamUrl(res.address);
@@ -18,9 +18,9 @@ const Movie = ({ movie }) => {
 
   return (
     <div className="Movie">
-      <div className="back-btn">
+      <button className="back-btn" onClick={() => window.history.back()}>
         <span className="fa fa-arrow-circle-o-left" aria-hidden="true" />
-      </div>
+      </button>
       <video src={streamUrl} autoPlay controls />
     </div>
   );
