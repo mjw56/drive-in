@@ -4,14 +4,15 @@ import "./Movie.css";
 const Movie = ({ movie }) => {
   const { useEffect, useState } = React;
   const [streamUrl, setStreamUrl] = useState("");
+  const setUrl = address => setStreamUrl(address);
 
   useEffect(
     () => {
       fetch(`/stream?magnet=${movie.magnet}`)
         .then(res => res.json())
-        .then(res => {
-          setStreamUrl(res.address);
-        });
+        .then(res => res.address)
+        .then(setUrl)
+        .catch(console.error);
     },
     [movie]
   );

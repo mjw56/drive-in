@@ -13,12 +13,9 @@ export default () => {
   const { movies } = MovieListDataResource.read(page);
   const dispatch = React.useContext(MovieDispatch);
 
-  React.useEffect(
-    () => {
-      dispatch({ type: actions.update_movie_list, movies });
-    },
-    [movies]
-  );
+  React.useEffect(() => dispatch({ type: actions.update_movie_list, movies }), [
+    movies
+  ]);
 
   return (
     <div>
