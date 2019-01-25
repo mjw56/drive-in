@@ -6,10 +6,11 @@ import Routing from "./routes/routing";
 import "./App.css";
 
 const App = () => {
-  const [{ movie, searchQuery }, dispatch] = React.useReducer(movieReducer, {
-    movie: "",
-    movies: []
-  });
+  let initialState = { movie: "", movies: [] };
+  const [{ movie, searchQuery }, dispatch] = React.useReducer(
+    movieReducer,
+    initialState
+  );
   return (
     <div className={`App ${window.location.pathname.replace("/", "")}`}>
       <MovieDispatch.Provider value={dispatch}>
