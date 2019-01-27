@@ -5,7 +5,9 @@ import MovieDispatch from "../context/MovieDispatch";
 import * as actions from "../actions/actions";
 
 const MovieListDataResource = createResource(page =>
-  fetch(`/movies?page=${page}`).then(res => res.json())
+  fetch(`/movies?page=${page}`)
+    .then(res => res.json())
+    .catch(console.error)
 );
 
 export default () => {

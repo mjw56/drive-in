@@ -5,7 +5,9 @@ import MovieDispatch from "../context/MovieDispatch";
 import * as actions from "../actions/actions";
 
 const MovieListDataResource = createResource(query =>
-  fetch(`/search?term=${query}`).then(res => res.json())
+  fetch(`/search?term=${query}`)
+    .then(res => res.json())
+    .catch(console.error)
 );
 
 export default ({ query }) => {
