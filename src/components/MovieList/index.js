@@ -16,7 +16,7 @@ const MovieList = ({ movies, movieListParams, setMovie }) => {
       {movies.map(movie => (
         <li key={movie.title} onClick={updateSelectedMovie}>
           <React.Suspense fallback={"loading..."}>
-            <Img src={movie.image} alt={movie.title} />
+            <img src={movie.image} alt={movie.title} />
           </React.Suspense>
         </li>
       ))}
